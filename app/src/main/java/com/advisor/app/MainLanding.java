@@ -111,9 +111,8 @@ public class MainLanding extends Activity
 		intro.setGravity( Gravity.LEFT );
 		intro.setTypeface(Typeface.DEFAULT_BOLD);
 		
-		intro.setText( "\n \u2605 Authentic Leadership \u2605 " );
-		
-		
+		intro.setText( "\n Personal and Professional Coaching \n" );
+
 		TextView description = new TextView( this );
 
 		description.setWidth( metrics.widthPixels );
@@ -123,8 +122,11 @@ public class MainLanding extends Activity
 		StringBuffer buff = new StringBuffer();
 
 		buff.append( "\n\nCoaching focuses on helping clients on a deeply personal level. It is a rapport built on teamwork. A Life Coach believes in you and will inspire you to believe in yourself.\n\n" )
-		.append( "Our role is to motivate and help you become confident and self assured. From the simplest task to the most complicated one, we are there to advise you at the level you need us to be.\n\n" )
-		.append( "As your Life Coach and Advisor, I am present for you fully. Together, we will build a personal toolkit, designed to reshape your thinking process and thus, your future.You will emerge as the architect and designer of your own ìLife-House!î" );
+		.append( "Our role is to motivate and help you become confident and self assured. It is based on positive psychology, a form of humanistic psychology. ")
+        .append("From the simplest task to the most complicated one, we are here to advise you at the level you need us to be.\n\n" )
+		.append( "As your Personal Coach, I am fully present. Together, we will build a personal toolkit,designed to reshape your thinking process and need for adaptation and thus, changing")
+        .append("your future. You will emerge as the architect and designer of your own ‚ÄúLife-House!‚Äù\n\n" )
+        .append("Copyright 2015");
 
 		description.setText( buff.toString() );
 		description.setMaxLines( 30 );

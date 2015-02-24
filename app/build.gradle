@@ -18,12 +18,12 @@ android {
     }
 }
 
+
 dependencies {
     compile 'com.android.support:support-v4:21.0.3'
     compile 'com.android.support:appcompat-v7:21.0.3'
     compile files('libs/android-async-http-1.4.4.jar')
     compile files('libs/hirondelle-date4j-1.5.1.jar')
     compile files('libs/PayPalAndroidSDK-2.6.1.jar')
-    compile files('libs/twilioclient-android-1.1.3-ad48713.jar')
     compile files('libs/twilioclient-android-1.2.0-0466703.jar')
 }
