@@ -43,10 +43,12 @@
             android:name="com.advisor.app.payment.PayPalActivity"
             android:label="@string/siane"
             android:parentActivityName="com.advisor.app.MainLanding" />
+<!--
         <activity
-            android:name="com.advisor.app.login.LoginActivity"
+            android:name="com.advisor.app.login.SigninActivity"
             android:label="@string/siane"
             android:parentActivityName="com.advisor.app.MainLanding" />
+-->
         <activity
             android:name="com.advisor.app.login.SigninActivity"
             android:label="@string/siane"
@@ -65,9 +67,9 @@
             android:label="@string/siane"
             android:parentActivityName="com.advisor.app.login.SigninActivity" />
         
-<!--         <activity android:name="com.advisor.app.SplashScreen"
+         <activity android:name="com.advisor.app.SplashScreen"
             android:label="@string/siane"/>
- -->        
+
         <service
             android:name="com.paypal.android.sdk.payments.PayPalService"
             android:exported="false" />

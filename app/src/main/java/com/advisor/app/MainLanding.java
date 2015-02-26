@@ -7,23 +7,14 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.content.res.Configuration;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
-import android.text.method.ScrollingMovementMethod;
-import android.util.DisplayMetrics;
-import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.ViewGroup.LayoutParams;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -58,7 +49,6 @@ public class MainLanding extends Activity
 	{
 		super.onCreate( savedInstanceState );
 		setContentView( R.layout.gmail_style_navigation );
-
 		dataBase = new AdvisorDB( this );
 		progress = new ProgressDialog( this );
 		progress.setMessage( "Loading..." );
@@ -68,80 +58,21 @@ public class MainLanding extends Activity
 
 		sharedPref = getSharedPreferences( Constants.SHARED_PREF_NAME, Context.MODE_PRIVATE );
 		editor = sharedPref.edit();
-
-		Intent myIntent = getIntent();
-		rates = myIntent.getStringExtra( "rate" );
-		
-		FrameLayout frame = (FrameLayout) findViewById( R.id.content_frame );
-
-		LinearLayout parent = new LinearLayout( this );
-		parent.setOrientation( LinearLayout.VERTICAL );
-
-		LinearLayout linear = new LinearLayout( this );
-		LinearLayout forDescription = new LinearLayout( this );
-		linear.setOrientation( LinearLayout.HORIZONTAL );
-
-		forDescription.setOrientation( LinearLayout.VERTICAL );
-
-		ImageView logo = new ImageView( this );
-
-		logo.setAdjustViewBounds( true );
-		logo.setImageResource( R.drawable.alisav );
-
-		logo.setMaxHeight( 500 );
-		logo.setMaxWidth( 500 );
-		logo.setPadding( 5, 5, 5, 5 );
-		logo.setX( 10 );
-		logo.setY( 10 );
-		//logo.setBackgroundColor( Color.GREEN );
-
-		LinearLayout.LayoutParams llp = new LinearLayout.LayoutParams( LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT );
-		logo.setLayoutParams( llp );
-
-		DisplayMetrics metrics = new DisplayMetrics();
-		getWindowManager().getDefaultDisplay().getMetrics( metrics );
-
-		TextView intro = new TextView( this );
-
-		intro.setWidth( metrics.widthPixels - 120 );
-		intro.setPadding( 10, 10, 10, 5 );
-
-		intro.setX( 10 );
-		// intro.setBackgroundColor( Color.YELLOW );
-		intro.setGravity( Gravity.LEFT );
-		intro.setTypeface(Typeface.DEFAULT_BOLD);
-		
-		intro.setText( "\n Personal and Professional Coaching \n" );
-
-		TextView description = new TextView( this );
-
-		description.setWidth( metrics.widthPixels );
-		// description.setBackgroundColor( Color.CYAN );
-		description.setGravity( Gravity.LEFT );
-
 		StringBuffer buff = new StringBuffer();
 
 		buff.append( "\n\nCoaching focuses on helping clients on a deeply personal level. It is a rapport built on teamwork. A Life Coach believes in you and will inspire you to believe in yourself.\n\n" )
 		.append( "Our role is to motivate and help you become confident and self assured. It is based on positive psychology, a form of humanistic psychology. ")
         .append("From the simplest task to the most complicated one, we are here to advise you at the level you need us to be.\n\n" )
-		.append( "As your Personal Coach, I am fully present. Together, we will build a personal toolkit,designed to reshape your thinking process and need for adaptation and thus, changing")
+		.append( "As your Personal Coach, I am fully present. Together, we will build a personal toolkit, designed to reshape your thinking process and need for adaptation and thus, changing")
         .append("your future. You will emerge as the architect and designer of your own “Life-House!”\n\n" )
         .append("Copyright 2015");
 
-		description.setText( buff.toString() );
-		description.setMaxLines( 30 );
-		description.setPadding( 10, 10, 10, 10 );
-		description.setGravity( Gravity.CENTER_HORIZONTAL );
-		description.setMovementMethod( new ScrollingMovementMethod() );
-		forDescription.addView( description );
 
-		linear.addView( logo );
-		linear.addView( intro );
-		
-		parent.addView( linear );
-		parent.addView( forDescription );
+        TextView des = (TextView) findViewById(R.id.relativeLayout_description_ml);
+        des.setText(buff.toString());
 
-		frame.addView( parent, new ViewGroup.LayoutParams( ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT ) );
+        TextView intro = (TextView)findViewById(R.id.relativeLayout_intro_ml);
+        intro.setText("Personal and Professional Coaching");
 
 		drawerListViewItems = getResources().getStringArray( R.array.nav_drawer_items );
 		drawerListView = (ListView) findViewById( R.id.left_drawer );
@@ -160,8 +91,7 @@ public class MainLanding extends Activity
 		getRate();
 
 	}
-	
-	
+
 	public void getRate()
 	{
 		try
