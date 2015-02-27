@@ -13,7 +13,6 @@ import android.widget.TextView;
 
 public class SplashScreen extends Activity
 {
-	private final int SPLASH_DISPLAY_LENGTH = 10000;
     private AsyncHttpClient client = new AsyncHttpClient();
 	
 	@Override
