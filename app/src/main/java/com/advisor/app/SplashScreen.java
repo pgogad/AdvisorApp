@@ -25,19 +25,6 @@ public class SplashScreen extends Activity
 		TextView text = (TextView) findViewById( R.id.splash_text );
 		text.setGravity( Gravity.CENTER );
 		getRate();
-		
-		new Handler().postDelayed( new Runnable()
-		{
-			@Override
-			public void run()
-			{
-				/* Create an Intent that will start the Menu-Activity. */
-				Intent mainIntent = new Intent( SplashScreen.this, MainLanding.class );
-				SplashScreen.this.startActivity( mainIntent );
-				SplashScreen.this.finish();
-                overridePendingTransition( R.anim.slide_in, R.anim.slide_out );
-			}
-		}, SPLASH_DISPLAY_LENGTH );
 	}
 
 	public void getRate()
@@ -50,6 +37,10 @@ public class SplashScreen extends Activity
                     public void onSuccess( String response )
                     {
                         Log.d("HTTP", "onSuccess: " + response);
+                        Intent mainIntent = new Intent( SplashScreen.this, MainLanding.class );
+                        SplashScreen.this.startActivity( mainIntent );
+                        SplashScreen.this.finish();
+                        overridePendingTransition( R.anim.slide_in, R.anim.slide_out );
                     }
             });
 		}
